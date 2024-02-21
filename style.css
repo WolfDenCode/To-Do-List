@@ -90,10 +90,6 @@ body {
   width: 80%;
 }
 
-.element-list li.active {
-  text-decoration: line-through;
-}
-
 .element-list div {
   display: flex;
   justify-content: start;
@@ -129,6 +125,10 @@ body {
   background-color: rgb(255, 91, 91);
   border: 1px solid gray;
   border-radius: 100%;
+}
+
+.element-list li.active {
+  text-decoration: line-through;
 }
 @media screen and (max-width: 800px) {
   .container {
@@ -176,5 +176,36 @@ body {
   }
   .list-input input::placeholder {
     font-size: 18px;
+  }
+}
+.fade-in {
+  animation: fadeIn 0.5s ease forwards;
+  opacity: 0;
+}
+
+.fade-out {
+  animation: fadeOut 0.5s ease forwards;
+  opacity: 1;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-100%);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes fadeOut {
+  from {
+    opacity: 1;
+    transform: scale(1);
+  }
+  to {
+    opacity: 0;
+    transform: scale(0);
   }
 }

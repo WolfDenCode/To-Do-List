@@ -1,6 +1,7 @@
 const elementList = document.querySelector(".element-list");
 const input = document.querySelector("input");
 const submit = document.querySelector("#submit");
+
 function addItem() {
   let itemName = input.value;
 
@@ -16,15 +17,24 @@ function addItem() {
   itemCheckBtn.classList.add("checker");
   itemCheckBtn.addEventListener("click", () => {
     checkOnClick(itemCheckBtn);
+    checkOnClick(itemText);
   });
   itemText.innerHTML = itemName;
+
   itemDeleteBtn.classList.add("delete");
   itemDeleteBtn.innerHTML = "X";
   itemDeleteBtn.addEventListener("click", () => {
-    elementList.removeChild(newItemDiv);
+    newItemDiv.addEventListener("animationend", () => {
+      elementList.removeChild(newItemDiv);
+    });
+    newItemDiv.classList.add("fade-out");
   });
 
+  newItemDiv.classList.add("fade-in");
+
   elementList.appendChild(newItemDiv);
+  input.value = "";
+  submit.disabled = true;
 }
 
 function checkOnClick(element) {
