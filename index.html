@@ -1,25 +1,43 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>To-Do List</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
     <div class="container">
-        <div class="list-input">
-            <input type="text" placeholder="Enter Your Task Here!">
-            <button onclick="createList()"> + Add Element</button>
-        </div>
-        <div class="list-items">
-            <ul class="element-list">
-                <div><button class="checker active"></button><li>#1 item</li><button class="delete">X</button></div>
-                <div><button class="checker"></button><li>#2 item</li><button class="delete">X</button></div>
-                <div><button class="checker"></button><li>#3 Really Long Task Much Text With Lots More</li><button class="delete">X</button></div>
-            </ul>
-        </div>
-        <script src="script.js"></script>
+      <div class="list-input">
+        <input
+          type="text"
+          oninput="toggleSubmit()"
+          placeholder="Enter Your Task Here!"
+        />
+        <button id="submit" disabled="true" onclick="addItem()">
+          + Add Element
+        </button>
+      </div>
+      <div class="list-items">
+        <ul class="element-list">
+          <!-- <div>
+            <button class="checker active"></button>
+            <li>#1 item</li>
+            <button class="delete">X</button>
+          </div>
+          <div>
+            <button class="checker"></button>
+            <li>#2 item</li>
+            <button class="delete">X</button>
+          </div>
+          <div>
+            <button class="checker"></button>
+            <li>#3 Really Long Task Much Text With Lots More</li>
+            <button class="delete">X</button>
+          </div> -->
+        </ul>
+      </div>
+      <script src="script.js"></script>
     </div>
-</body>
+  </body>
 </html>
