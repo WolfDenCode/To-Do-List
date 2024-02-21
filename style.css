@@ -2,6 +2,13 @@
 
 * {
   box-sizing: border-box;
+  -ms-overflow-style: none; /* Internet Explorer 10+ */
+  scrollbar-width: none; /* Firefox */
+}
+::-webkit-scrollbar {
+  /*For Safari*/
+  width: 0;
+  background: transparent;
 }
 
 body {
@@ -11,30 +18,35 @@ body {
   height: 100vh;
   width: 100vw;
   overflow-x: hidden;
-
-  background: rgb(112, 8, 141);
-  background: linear-gradient(
-    115deg,
-    rgba(112, 8, 141, 1) 35%,
-    rgba(0, 106, 160, 1) 100%
-  );
+  background-color: #161616;
 }
 
 .container {
   margin: auto;
   margin-top: 10%;
-  background-color: antiquewhite;
+  background-color: #302f57;
   padding: 40px;
-  width: 40vw;
+  width: 400px;
   border-radius: 40px;
   display: flex;
   flex-direction: column;
   gap: 10px;
 }
 
+h1 {
+  color: white;
+  text-align: center;
+  margin-top: 0;
+}
+.list-items {
+  min-height: 150px;
+  max-height: 300px;
+  overflow-y: scroll;
+}
 .list-input {
   display: flex;
   flex-direction: row-reverse;
+  align-items: center;
   width: 100%;
   position: relative;
 }
@@ -44,25 +56,25 @@ body {
   height: 7vh;
   border-radius: 40px;
   border: 1px gray solid;
-  padding-left: 5vh;
+  padding-left: 15px;
   font-size: 20px;
   outline: none;
-}
-
-.list-input::placeholder {
-  text-align: center;
+  background-color: #27264d;
+  border-color: #27264d;
+  color: white;
 }
 
 .list-input button {
   position: absolute;
-  background-color: rgb(255, 190, 70);
-  height: 7vh;
+  background-color: #3372ab;
   border-radius: 40px;
-  border: 1px solid gray;
-  width: 50%;
+  border: 1px solid #3372ab;
+  width: 30px;
+  height: 30px;
   font-size: 20px;
+  margin-right: 15px;
   font-weight: lighter;
-  color: black;
+  color: white;
 }
 
 .list-input button:hover {
@@ -95,19 +107,24 @@ body {
   justify-content: start;
   align-items: center;
   gap: 10px;
-  height: 100%;
+  height: 50px;
+  padding: 10px;
   width: 100%;
+  background-color: #414166;
+  color: white;
+  border-radius: 10px;
+  box-shadow: 0 2px 2px #292929;
 }
 
 .checker,
 .delete {
-  width: 5vh;
-  height: 5vh;
+  height: 35px;
+  width: 35px;
   padding: 0;
 }
 
 .checker {
-  border: 1px gray solid;
+  border: 1px white solid;
   border-radius: 50%;
 }
 
@@ -123,61 +140,28 @@ body {
   font-weight: bold;
   color: white;
   background-color: rgb(255, 91, 91);
-  border: 1px solid gray;
+  border: 1px solid rgb(255, 91, 91);
   border-radius: 100%;
+  text-align: center;
 }
 
 .element-list li.active {
   text-decoration: line-through;
 }
-@media screen and (max-width: 800px) {
+
+@media (max-width: 450px) {
   .container {
-    width: 90vw;
+    width: 300px;
     padding: 20px;
   }
-
-  .list-input button {
-    position: relative;
-    width: 100%;
-  }
-  .list-input {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .list-input input::placeholder {
-    font-size: 18px;
-  }
-  .list-input input {
-    padding-left: 0;
-    text-align: center;
-  }
-  .delete,
-  .checker {
-    height: 6vh;
-    width: 6vh;
-  }
-  .element-list li {
-    width: 65%;
-  }
-  .element-list div {
-    align-items: center;
-    justify-content: center;
+  .checker,
+  .delete {
+    height: 30px;
+    width: 30px;
+    padding: 0;
   }
 }
 
-@media screen and (min-width: 801px) and (max-width: 1439px) {
-  .list-input button {
-    position: relative;
-    width: 100%;
-  }
-  .list-input {
-    flex-direction: column;
-    gap: 20px;
-  }
-  .list-input input::placeholder {
-    font-size: 18px;
-  }
-}
 .fade-in {
   animation: fadeIn 0.5s ease forwards;
   opacity: 0;
